@@ -1,0 +1,10 @@
+{
+    "index": {
+        "fields": [
+            "subject.id"
+        ]
+    },
+    "ddoc": "indexDocumentSubject",
+    "name": "indexSubject",
+    "type": "json"
+}

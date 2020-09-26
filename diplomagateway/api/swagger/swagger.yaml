@@ -1,0 +1,278 @@
+swagger: "2.0"
+info:
+  description: "Gateway para interação com serviços providos pela ledger distribuida"
+  version: "1.0.0"
+  title: "Diploma - DLT-gateway"
+  contact:
+    email: "comercial@mbamobi.com.br"
+tags:
+  - name: "Diploma"
+    description: "Blockchain - INEP"
+schemes:
+  - "http"
+paths:
+  /aluno:
+    post:
+      tags:
+        - "Diploma"
+      summary: "Adiciona um novo aluno"
+      description: ""
+      operationId: "addAluno"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Definição do aluno"
+          required: true
+          schema:
+            $ref: "#/definitions/Aluno"
+      responses:
+        405:
+          description: "Invalid input"
+  /aluno/{cpf}:
+    get:
+      tags:
+        - "Diploma"
+      summary: "Consulta de aluno por cpf"
+      description: "Retorna um aluno especifico"
+      operationId: "getAlunoById"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "cpf"
+          in: "path"
+          description: "CPF do aluno"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: "#/definitions/Aluno"
+        400:
+          description: "CPF Inválido"
+        404:
+          description: "Aluno não encontrado"
+  /instituicao:
+    post:
+      tags:
+        - "Diploma"
+      summary: "Adiciona uma nova instituicao"
+      description: ""
+      operationId: "addInstituicao"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Definição da Instituição"
+          required: true
+          schema:
+            $ref: "#/definitions/Instituicao"
+      responses:
+        405:
+          description: "Invalid input"
+  /instituicao/{codigoIes}:
+    get:
+      tags:
+        - "Diploma"
+      summary: "Consulta de instituicao por codigoIes"
+      description: "Retorna uma instituicao"
+      operationId: "getInstituicaoById"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "codigoIes"
+          in: "path"
+          description: "Codigo da IES"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: "#/definitions/Instituicao"
+        400:
+          description: "Codigo Ies inválido"
+        404:
+          description: "Instituicao não encontrada"
+  /diploma:
+    post:
+      tags:
+        - "Diploma"
+      summary: "Adiciona um novo diploma"
+      description: ""
+      operationId: "addDiploma"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Definição do diploma"
+          required: true
+          schema:
+            $ref: "#/definitions/Diploma"
+      responses:
+        405:
+          description: "Invalid input"
+  /diploma/{id}:
+    get:
+      tags:
+        - "Diploma"
+      summary: "Consulta de diploma por id"
+      description: "Retorna um diploma especifico"
+      operationId: "getDiplomaById"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "Id do diploma"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: "#/definitions/Diploma"
+        400:
+          description: "Id Inválido"
+        404:
+          description: "Diploma não encontrado"
+  /historico:
+    post:
+      tags:
+        - "Diploma"
+      summary: "Adiciona um novo historico"
+      description: ""
+      operationId: "addDiploma"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Definição do historico"
+          required: true
+          schema:
+            $ref: "#/definitions/Historico"
+      responses:
+        405:
+          description: "Invalid input"
+  /historico/{cpf}:
+    get:
+      tags:
+        - "Diploma"
+      summary: "Consulta de historico por id"
+      description: "Retorna um historico especifico"
+      operationId: "getHistoricoById"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "cpf"
+          in: "path"
+          description: "cpf"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: "#/definitions/Historico"
+        400:
+          description: "Cpf Inválido"
+        404:
+          description: "Historico não encontrado"
+definitions:
+  Patient:
+    required:
+      - "cpf"
+      - "cns"
+      - "name"
+      - "vip"
+    properties:
+      cpf:
+        type: "string"
+      cns:
+        type: "string"
+      name:
+        type: "string"
+      consentedTo:
+        type: "array"
+        items:
+          type: "string"
+      consentOption:
+        type: "string"
+        enum: [OptIn, OptOut]
+      vip:
+        type: "boolean"
+  Aluno:
+    required:
+      - "cpf"
+      - "nome"
+    properties:
+      cpf:
+        type: "string"
+      nome:
+        type: "string"
+  Instituicao:
+    required:
+      - "codigoIes"
+      - "nome"
+    properties:
+      id:
+        type: "string"
+      codigoIes:
+        type: "string"
+      nome:
+        type: "string"
+      siglaIes:
+        type: "string"
+  Diploma:
+    required:
+      - "id"
+    properties:
+      id:
+        type: "string"
+      idInstituicao:
+        type: "string"
+      tipoDiploma:
+        type: "string"
+      codigoIesCurso:
+        type: "string"
+      nomeCurso:
+        type: "string"
+      modalidade:
+        type: "string"
+      dataConclusao:
+        type: "string"
+      pathDoc:
+        type: "string"
+      idDoc:
+        type: "string"
+  Historico:
+    properties:
+      id:
+        type: "string"
+      cpf:
+        type: "string"
+      idDiploma:
+        type: "string"
+      data:
+        type: "string"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      msg:
+        type: "string"

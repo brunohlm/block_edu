@@ -1,0 +1,10 @@
+{
+  "aluno": "{\"id\": \"123\",\"cpf\": \"string\",\"nome\": \"Paciente 1\"}",
+  "organization": "{\"cnes\":\"1234\",\"name\":\"Test Org\"}",
+  "practioner": "{ \"cpf\": \"1111111\",\"cns\": \"123456\",\"name\": \"Valeska\",\"cbo\": \"string\", \"workingAt\": [\"12\"]}",
+  "practionerOrgAuth": "{ \"cpf\": \"1111111\",\"cns\": \"123457\",\"name\": \"Valeska\",\"cbo\": \"string\", \"workingAt\": [\"1234\"]}",
+  "practionerNotAuth": "{ \"cpf\": \"1111111\",\"cns\": \"123128\",\"name\": \"Valeska\",\"cbo\": \"string\", \"workingAt\": [\"12\"]}",
+  "patient": "{\"cpf\": \"string\",\"cns\": \"1234567\",\"name\": \"Paciente 1\",\"consentedTo\": [\"123456\",\"1234\"],\"summaryUri\": \"string\",\"summaryHash\": \"string\"}",
+  "document": "{\"resourceType\": \"exame\",\"masterIdentifier\": \"string\",\"identifier\": [\"string\"],\"status\": \"string\",\"docStatus\": \"string\",\"type\": \"string\",\"category\": [\"string\"],\"subject\": {\"cpfPatient\": \"string\"},\"author\": [\"string\"],\"authenticator\": \"string\",\"custodian\": {\"cnesOrg\": \"string\"},\"description\": \"string\",\"securityLabel\": [\"string\"],\"content\": [{\"attachment\": \"string\",\"format\": \"string\",\"hash\": \"string\"}],\"encounter\": \"string\",\"event\": [\"string\"],\"period\": \"string\",\"facilityType\": \"string\",\"practiceSetting\": \"string\",\"sourcePatientInfo\": \"string\"}",
+  "consent": "{\"resourceType\": \"string\",\"identifier\": \"string\",\"status\": \"string\",\"scope\": \"string\",\"category\": [\"string\"],\"patient\": \"string\",\"dateTime\": \"string\",\"performer\": \"string\",\"organization\": \"string\",\"sourceAttachment\": \"string\",\"sourceReference\": \"string\",\"policy\": [\"string\"],\"policyRule\": \"string\",\"verification\": [\"string\"],\"provision\": {\"type\": \"string\",\"period\": \"string\",\"actor\": [\"string\"],\"action\": [\"string\"],\"securityLabel\": [\"string\"],\"purpose\": [\"string\"],\"class\": [\"string\"],\"code\": [\"string\"],\"dataPeriod\": \"string\",\"data\": [\"string\"],\"provision\": [\"string\"]}}"
+}
